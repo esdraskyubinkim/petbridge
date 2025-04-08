@@ -1,0 +1,36 @@
+.pets-page {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .pet-category-container {
+    margin-top: 30px;
+  }
+  
+  .category-list {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+  }
+  
+  .category-list button {
+    padding: 15px 30px;
+    font-size: 18px;
+    background: linear-gradient(135deg, #1976d2, #64b5f6);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .category-list button:hover {
+    background: linear-gradient(135deg, #1565c0, #42a5f5);
+  }
+  
+  .pet-content {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  
