@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './PageStyle.css';
-import './PageStyle2.css';
+import styles from './Login.module.css';
 
 const Signup = () => {
   const [username, setUsername] = useState('');
@@ -40,11 +39,12 @@ const Signup = () => {
   };
 
   return (
-    <div className="page-content signup-page">
-      <h2>회원가입</h2>
+    <div className={styles.pageContent}>
+      <h2 className={styles.title}>회원가입</h2>
       <form onSubmit={handleSignup}>
         <input
           type="text"
+          className={styles.InputField}
           placeholder="사용자 이름"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
@@ -53,6 +53,7 @@ const Signup = () => {
 
         <input
           type="password"
+          className={styles.InputField}
           placeholder="비밀번호"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
@@ -61,13 +62,14 @@ const Signup = () => {
 
         <input
           type="password"
+          className={styles.InputField}
           placeholder="비밀번호 확인"
           value={confirm}
           onChange={(e) => setConfirm(e.target.value)}
           required
         />
 
-        <button type="submit">가입하기</button>
+        <button type="submit" className={styles.loginButton} >가입하기</button>
       </form>
     </div>
   );

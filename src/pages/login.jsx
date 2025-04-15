@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import './common.css';
+import styles from './Login.module.css';
 
 const Login = ({ onLogin }) => {
   const [username, setUsername] = useState('');
@@ -10,7 +10,6 @@ const Login = ({ onLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    // 사용자 정보 불러오기
     const users = JSON.parse(localStorage.getItem('users') || '[]');
     const user = users.find((u) => u.username === username);
 
@@ -24,40 +23,42 @@ const Login = ({ onLogin }) => {
       return;
     }
 
-    // 로그인 상태 설정 및 로컬스토리지 저장
-    onLogin(username); // App.js에 전달
-    localStorage.setItem('user', JSON.stringify(username)); // 새로고침 시 유지
+    onLogin(username);
+    localStorage.setItem('user', JSON.stringify(username));
     navigate('/');
   };
 
   return (
-    <div className="page-content">
-      <h2>로그인</h2>
+    <div className={styles.pageContent}>
+      <h2 className={styles.title}>로그인</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
-          className="form-input"
+          className={styles.formInput}
           placeholder="사용자 이름"
           value={username}
           onChange={(e) => setUsername(e.target.value)}
           required
         />
 
-        <div className="password-input">
+        <div className={styles.passwordInput}>
           <input
             type="password"
-            className="form-input"
+            className={styles.passwordInputField}
             placeholder="비밀번호"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
+          {/* 나중에 토글 버튼 추가 가능 */}
         </div>
 
-        <button type="submit" className="form-button">로그인</button>
+        <button type="submit" className={styles.loginButton}>
+          로그인
+        </button>
       </form>
 
-      <p className="link-text">
+      <p className={styles.linkText}>
         아직 계정이 없으신가요? <Link to="/signup">회원가입</Link>
       </p>
     </div>

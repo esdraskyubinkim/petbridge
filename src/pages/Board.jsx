@@ -82,7 +82,6 @@ const Board = ({ user }) => {
 
   return (
     <div className="page-content">
-      <h2>💬 게시판 (채팅 포함)</h2>
       <div className="chat-box">
         {messages.length === 0 ? (
           <p style={{ color: '#888', textAlign: 'center' }}>아직 메시지가 없어요. 첫 메시지를 남겨보세요!</p>
